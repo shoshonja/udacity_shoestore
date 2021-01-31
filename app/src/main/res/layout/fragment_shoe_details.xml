@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".shoedetails.ShoeDetailsFragment">
+
+    <TextView
+        android:id="@+id/fragment_shoe_details_tv_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="This is shoe name"
+        app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_company"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/fragment_shoe_details_et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_name" />
+
+    <TextView
+        android:id="@+id/fragment_shoe_details_tv_company"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="This is shoemaker"
+        app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_name" />
+
+    <EditText
+        android:id="@+id/fragment_shoe_details_et_company"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_company" />
+
+    <TextView
+        android:id="@+id/fragment_shoe_details_tv_size"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="This is shoe size"
+        app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_company" />
+
+    <EditText
+        android:id="@+id/fragment_shoe_details_et_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_size" />
+
+    <TextView
+        android:id="@+id/fragment_shoe_details_tv_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="This is description"
+        app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_bt_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_size" />
+
+    <EditText
+        android:id="@+id/fragment_shoe_details_et_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_desc" />
+
+    <Button
+        android:id="@+id/fragment_shoe_details_bt_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save shoe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/fragment_shoe_details_bt_cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_desc" />
+
+    <Button
+        android:id="@+id/fragment_shoe_details_bt_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="@id/fragment_shoe_details_bt_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragment_shoe_details_bt_save"
+        app:layout_constraintTop_toTopOf="@id/fragment_shoe_details_bt_save" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
