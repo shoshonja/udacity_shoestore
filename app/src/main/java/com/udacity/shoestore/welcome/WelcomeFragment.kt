@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.instructions.InstructionsFragment
 
 
 class WelcomeFragment : Fragment() {
+
     lateinit var button: Button
 
     override fun onCreateView(
@@ -19,6 +22,7 @@ class WelcomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_welcome, container, false)
+
         return view
     }
 }

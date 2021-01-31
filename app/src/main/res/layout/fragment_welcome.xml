@@ -1,50 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".welcome.WelcomeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:text="This is Welcome screen"
-        android:textSize="32dp"
-        android:id="@+id/fragment_welcome_tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/fragment_welcome_tv_expl"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".welcome.WelcomeFragment">
 
-    <TextView
-        android:text="This is some lengthy explanation about shoes and how they need to fit your feet"
-        android:id="@+id/fragment_welcome_tv_expl"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        app:layout_constraintBottom_toTopOf="@id/fragment_welcome_tv_quest"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_welcome_tv_title" />
+        <TextView
+            android:id="@+id/fragment_welcome_tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This is Welcome screen"
+            android:textSize="32dp"
+            app:layout_constraintBottom_toTopOf="@id/fragment_welcome_tv_expl"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:text="Would you like to know more?"
-        android:id="@+id/fragment_welcome_tv_quest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/fragment_welcome_bt_proceed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_welcome_tv_expl" />
+        <TextView
+            android:id="@+id/fragment_welcome_tv_expl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="This is some lengthy explanation about shoes and how they need to fit your feet"
+            app:layout_constraintBottom_toTopOf="@id/fragment_welcome_tv_quest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_welcome_tv_title" />
 
-    <Button
-        android:id="@+id/fragment_welcome_bt_proceed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Proceed to the instructions"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_welcome_tv_quest" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/fragment_welcome_tv_quest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Would you like to know more?"
+            app:layout_constraintBottom_toTopOf="@id/fragment_welcome_bt_proceed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_welcome_tv_expl" />
+
+        <Button
+            android:id="@+id/fragment_welcome_bt_proceed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proceed to the instructions"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_welcome_tv_quest" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

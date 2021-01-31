@@ -1,68 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".login.LoginFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/fragment_login_tv_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email goes here"
-        app:layout_constraintBottom_toTopOf="@id/fragment_login_tv_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
 
-    <EditText
-        android:id="@+id/fragment_login_et_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter your email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_login_tv_email" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".login.LoginFragment">
 
-    <TextView
-        android:id="@+id/fragment_login_tv_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password goes here"
-        app:layout_constraintBottom_toTopOf="@id/fragment_login_bt_new"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_login_et_email" />
+        <TextView
+            android:id="@+id/fragment_login_tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email goes here"
+            app:layout_constraintBottom_toTopOf="@id/fragment_login_tv_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/fragment_login_et_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter your password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_login_tv_password" />
+        <EditText
+            android:id="@+id/fragment_login_et_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter your email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_tv_email" />
 
-    <Button
-        android:id="@+id/fragment_login_bt_new"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login with new account"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_login_tv_password" />
+        <TextView
+            android:id="@+id/fragment_login_tv_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password goes here"
+            app:layout_constraintBottom_toTopOf="@id/fragment_login_bt_new"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_et_email" />
 
-    <Button
-        android:id="@+id/fragment_login_bt_existing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login with existing account"
-        app:layout_constraintEnd_toEndOf="@id/fragment_login_bt_new"
-        app:layout_constraintStart_toStartOf="@id/fragment_login_bt_new"
-        app:layout_constraintTop_toBottomOf="@id/fragment_login_bt_new" />
+        <EditText
+            android:id="@+id/fragment_login_et_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter your password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_tv_password" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/fragment_login_bt_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login with new account"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_tv_password" />
+
+        <Button
+            android:id="@+id/fragment_login_bt_existing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login with existing account"
+            app:layout_constraintEnd_toEndOf="@id/fragment_login_bt_new"
+            app:layout_constraintStart_toStartOf="@id/fragment_login_bt_new"
+            app:layout_constraintTop_toBottomOf="@id/fragment_login_bt_new" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
