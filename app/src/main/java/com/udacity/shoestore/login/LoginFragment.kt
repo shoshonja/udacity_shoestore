@@ -21,13 +21,10 @@ class LoginFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
         binding.fragmentLoginBtExisting.setOnClickListener { view: View ->
-//            Toast.makeText(view.context, "Existing button clicked", Toast.LENGTH_SHORT).show()
             view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
         }
 
         binding.fragmentLoginBtNew.setOnClickListener { view: View ->
-//            Toast.makeText(view.context, "New button clicked", Toast.LENGTH_SHORT).show()
-
             view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
         }
 
