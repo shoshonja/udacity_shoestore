@@ -21,24 +21,29 @@ Open the starter project in Android Studio
 2. Add the navigation libraries to the app build.gradle file
     DONE
 3. Add the safe-arg plugin to the main and app build.gradle file
-    
+    DONE
 4. Create a new navigation xml file
-
+    DONE
 5. Create a new Login destination.
-
+    DONE
    * Include email and password labels 
-
+    DONE
    - Include email and password fields
+   DONE
    - Create buttons for creating a new login and logging in with an existing account
+   DONE
    - Clicking either button should navigate to the Welcome Screen.
+   DONE
 
 6. Create a new Welcome screen destination that includes:
+    DONE
 
    * A new layout
    * At least 2 textviews
    * A navigation button with actions to navigate to the instructions screen
 
 7. Create a new Instruction destination that includes:
+    DONE
 
    * A new layout
    * At least 2 textviews
@@ -60,7 +65,9 @@ Open the starter project in Android Studio
 11. Create a new Shoe Detail destination that includes:
 
     * A new layout
+    DONE
     * A TextView label and EditView for the
+    DONE
       * Shoe Name
       * Company
       * Shoe Size
@@ -69,6 +76,7 @@ Open the starter project in Android Studio
     * A Save button with an action to navigate back to the shoe list screen and add a new Shoe to the Shoe View Model
 
 12. Make sure you can’t go back to onboarding screens
+    DONE
 
 13. In the Shoe List screen:
 
