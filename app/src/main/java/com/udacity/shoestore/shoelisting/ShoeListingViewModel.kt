@@ -16,7 +16,4 @@ class ShoeListingViewModel : ViewModel() {
         get() = _eventShoeAdded
 
     private val _eventShoeAdded = MutableLiveData<Shoe>()
-
-
-
 }

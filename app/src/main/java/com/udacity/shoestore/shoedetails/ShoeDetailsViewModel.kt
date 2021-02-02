@@ -27,7 +27,7 @@ class ShoeDetailsViewModel : ViewModel() {
 
     fun onCancel() {
         _eventCanceled.value = true
-        _eventCanceled.value = false
+//        _eventCanceled.value = false
     }
 
 }

@@ -1,15 +1,17 @@
 package com.udacity.shoestore.shoedetails
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
+import com.udacity.shoestore.activitymain.MainActivityViewModel
 import com.udacity.shoestore.databinding.FragmentShoeDetailsBinding
 import com.udacity.shoestore.models.Shoe
 
@@ -18,6 +20,7 @@ class ShoeDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentShoeDetailsBinding
     private lateinit var viewModel: ShoeDetailsViewModel
+    private lateinit var mainViewModel: MainActivityViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,17 +33,21 @@ class ShoeDetailsFragment : Fragment() {
 
 
         viewModel = ViewModelProvider(this).get(ShoeDetailsViewModel::class.java)
+        mainViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
 
         viewModel.eventCanceled.observe(viewLifecycleOwner, Observer { isCanceled ->
             if (isCanceled) {
-                //TODO pop backstack
                 goBack()
             }
         })
 
         viewModel.newShoeDetail.observe(viewLifecycleOwner, Observer { shoe ->
-            //TODO return shoe to previous fragment (safeargs)
+            goBackWithShoe(shoe)
         })
+
+        mainViewModel.shoeList.observe(
+            viewLifecycleOwner,
+            Observer { Toast.makeText(context, "Shoe is added", Toast.LENGTH_SHORT).show() })
 
         binding.fragmentShoeDetailsBtSave.setOnClickListener { shoeSaved(gatherShoeData()) }
         binding.fragmentShoeDetailsBtCancel.setOnClickListener { shoeCanceled() }
@@ -51,6 +58,8 @@ class ShoeDetailsFragment : Fragment() {
         return binding.root
     }
 
+
+    //TODO fine tunning - don't allow empty fields
     private fun gatherShoeData(): Shoe {
         return Shoe(
             binding.fragmentShoeDetailsEtName.text.toString(),
@@ -62,6 +71,7 @@ class ShoeDetailsFragment : Fragment() {
     }
 
     private fun shoeSaved(shoe: Shoe) {
+        mainViewModel.addShoe(shoe)
         viewModel.onSave(shoe)
     }
 
@@ -71,6 +81,14 @@ class ShoeDetailsFragment : Fragment() {
 
     private fun goBack() {
         findNavController().navigateUp()
+    }
+
+    private fun goBackWithShoe(shoe: Shoe) {
+        findNavController().navigate(
+            ShoeDetailsFragmentDirections.actionShoeDetailsFragmentToShoeListingFragment(
+                shoe
+            )
+        )
     }
 
 
