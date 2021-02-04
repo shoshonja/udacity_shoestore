@@ -33,21 +33,21 @@ class ShoeDetailsFragment : Fragment() {
 
 
         viewModel = ViewModelProvider(this).get(ShoeDetailsViewModel::class.java)
-        mainViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        mainViewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
 
-        viewModel.eventCanceled.observe(viewLifecycleOwner, Observer { isCanceled ->
-            if (isCanceled) {
-                goBack()
-            }
-        })
+//        viewModel.eventCanceled.observe(viewLifecycleOwner, Observer { isCanceled ->
+//            if (isCanceled) {
+//                goBack()
+//            }
+//        })
+//
+//        viewModel.newShoeDetail.observe(viewLifecycleOwner, Observer { shoe ->
+//            goBackWithShoe(shoe)
+//        })
 
-        viewModel.newShoeDetail.observe(viewLifecycleOwner, Observer { shoe ->
-            goBackWithShoe(shoe)
-        })
-
-        mainViewModel.shoeList.observe(
-            viewLifecycleOwner,
-            Observer { Toast.makeText(context, "Shoe is added", Toast.LENGTH_SHORT).show() })
+//        mainViewModel.shoeList.observe(
+//            viewLifecycleOwner,
+//            Observer { Toast.makeText(context, "Shoe is added", Toast.LENGTH_SHORT).show() })
 
         binding.fragmentShoeDetailsBtSave.setOnClickListener { shoeSaved(gatherShoeData()) }
         binding.fragmentShoeDetailsBtCancel.setOnClickListener { shoeCanceled() }
@@ -64,7 +64,7 @@ class ShoeDetailsFragment : Fragment() {
         return Shoe(
             binding.fragmentShoeDetailsEtName.text.toString(),
             binding.fragmentShoeDetailsEtSize.text.toString().toDouble(),
-            binding.fragmentShoeDetailsEtCompany.toString(),
+            binding.fragmentShoeDetailsEtCompany.text.toString(),
             binding.fragmentShoeDetailsEtDesc.text.toString(),
             null
         )
@@ -72,11 +72,13 @@ class ShoeDetailsFragment : Fragment() {
 
     private fun shoeSaved(shoe: Shoe) {
         mainViewModel.addShoe(shoe)
-        viewModel.onSave(shoe)
+        goBack()
+//        viewModel.onSave(shoe)
     }
 
     private fun shoeCanceled() {
-        viewModel.onCancel()
+        goBack()
+//        viewModel.onCancel()
     }
 
     private fun goBack() {

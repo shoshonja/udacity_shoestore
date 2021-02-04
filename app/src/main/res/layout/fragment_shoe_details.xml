@@ -13,7 +13,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="This is shoe name"
-            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_company"
+            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_et_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +22,7 @@
             android:id="@+id/fragment_shoe_details_et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_company"
             app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_name" />
 
         <TextView
@@ -29,15 +30,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="This is shoemaker"
-            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_size"
+            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_et_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_name" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_et_company" />
 
         <EditText
             android:id="@+id/fragment_shoe_details_et_company"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_size"
             app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_company" />
 
         <TextView
@@ -45,16 +47,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="This is shoe size"
-            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_desc"
+            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_et_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_company" />
+            app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_et_company" />
 
         <EditText
             android:id="@+id/fragment_shoe_details_et_size"
-            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_size"
             app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_size" />
 
         <TextView
@@ -62,10 +65,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="This is description"
-            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_bt_save"
+            app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_et_size"
+            app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_et_desc"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_size" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/fragment_shoe_details_et_desc"
