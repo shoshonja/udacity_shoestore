@@ -52,6 +52,7 @@ class ShoeListingFragment : Fragment() {
                 )
                 binding.fragmentShoeListingLinear.addView(name)
 
+//                binding.invalidateAll()
 //                binding.fragmentShoeListingLinear.addView(tv, -1)
 //                binding.fragmentShoeListingLinear.requestLayout()
 //                binding.fragmentShoeListingLinear.invalidate()
