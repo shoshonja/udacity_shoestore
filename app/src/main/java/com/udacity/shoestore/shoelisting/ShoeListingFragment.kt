@@ -39,18 +39,24 @@ class ShoeListingFragment : Fragment() {
 
 
 
-        mainViewModel.shoeList.observe(requireActivity(), { newShoeList ->
+
+        mainViewModel.shoeList.observe(viewLifecycleOwner, { newShoeList ->
             run {
 //                Toast.makeText(context, "Shoe is created", Toast.LENGTH_SHORT).show()
                 Log.d("SHOE_LOG", "Observer si triggered")
+//                addLayout(newShoeList[newShoeList.size - 1])
 
-                val name = TextView(context)
-                name.text = newShoeList[newShoeList.size-1].name
-                name.layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-                binding.fragmentShoeListingLinear.addView(name)
+
+//                if (mainViewModel.shoeList.value != null) {
+//                    for (shoe in mainViewModel.shoeList.value!!) {
+//                        addLayout(shoe)
+//                    }
+//                }
+
+                for (shoe in newShoeList){
+                    addLayout(shoe)
+                }
+
 
 //                binding.invalidateAll()
 //                binding.fragmentShoeListingLinear.addView(tv, -1)
@@ -61,9 +67,9 @@ class ShoeListingFragment : Fragment() {
             }
         })
 
+
         //TODO: bug - addView se triggera više puta
         //TODO: bug - addView radi replace view, a ne add
-
 
 
         binding.fragmentShoeListingFab.setOnClickListener {
@@ -85,6 +91,26 @@ class ShoeListingFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+//    override fun onResume() {
+//        super.onResume()
+//        if (mainViewModel.shoeList.value != null) {
+//            for (shoe in mainViewModel.shoeList.value!!) {
+//                addLayout(shoe)
+//            }
+//        }
+//
+//    }
+
+    private fun addLayout(shoe: Shoe) {
+        val name = TextView(context)
+        name.text = shoe.name
+        name.layoutParams = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        binding.fragmentShoeListingLinear.addView(name)
     }
 
 
