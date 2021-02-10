@@ -1,15 +1,11 @@
 package com.udacity.shoestore.shoedetails
 
+import android.widget.EditText
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.udacity.shoestore.models.Shoe
 
 class ShoeDetailsViewModel : ViewModel() {
-
-//    val newShoeDetail: LiveData<Shoe>
-//        get() = _newShoeDetail
-//    private val _newShoeDetail = MutableLiveData<Shoe>()
 
     val eventCanceled: LiveData<Boolean>
         get() = _eventCanceled
@@ -17,18 +13,29 @@ class ShoeDetailsViewModel : ViewModel() {
     private val _eventCanceled = MutableLiveData<Boolean>()
 
     val eventSaved: LiveData<Boolean>
-    get() = _eventSaved
+        get() = _eventSaved
 
     private val _eventSaved = MutableLiveData<Boolean>()
 
     fun onSave() {
         _eventSaved.value = true
-//        _newShoeDetail.value = shoe
     }
 
     fun onCancel() {
         _eventCanceled.value = true
-//        _eventCanceled.value = false
     }
+
+    fun handleEmptyEditTexts(editTextString: String): String {
+        return editTextString ?: ""
+    }
+
+    fun handleEmptyEditTextsAsDoubles(editTextString: String): Double {
+        return if (editTextString == ""){
+            0.0
+        } else {
+            editTextString.toDouble()
+        }
+    }
+
 
 }

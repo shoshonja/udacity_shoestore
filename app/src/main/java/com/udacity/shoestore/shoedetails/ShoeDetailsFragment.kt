@@ -33,6 +33,13 @@ class ShoeDetailsFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ShoeDetailsViewModel::class.java)
         mainViewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
 
+        setObservers()
+        setLiseners()
+
+        return binding.root
+    }
+
+    private fun setObservers() {
         viewModel.eventCanceled.observe(viewLifecycleOwner, Observer { isCanceled ->
             if (isCanceled) {
                 shoeCanceled()
@@ -44,22 +51,20 @@ class ShoeDetailsFragment : Fragment() {
                 shoeSaved(gatherShoeData())
             }
         })
+    }
 
-        binding.fragmentShoeDetailsBtSave.setOnClickListener { shoeSaved(gatherShoeData()) }
-        binding.fragmentShoeDetailsBtCancel.setOnClickListener { shoeCanceled() }
-
-
-        return binding.root
+    private fun setLiseners() {
+        binding.fragmentShoeDetailsBtSave.setOnClickListener { viewModel.onSave() }
+        binding.fragmentShoeDetailsBtCancel.setOnClickListener { viewModel.onCancel() }
     }
 
 
-    //TODO fine tunning - don't allow empty fields
     private fun gatherShoeData(): Shoe {
         return Shoe(
-            binding.fragmentShoeDetailsEtName.text.toString(),
-            binding.fragmentShoeDetailsEtSize.text.toString().toDouble(),
-            binding.fragmentShoeDetailsEtCompany.text.toString(),
-            binding.fragmentShoeDetailsEtDesc.text.toString(),
+            viewModel.handleEmptyEditTexts(binding.fragmentShoeDetailsEtName.text.toString()),
+            viewModel.handleEmptyEditTextsAsDoubles(binding.fragmentShoeDetailsEtSize.text.toString()),
+            viewModel.handleEmptyEditTexts(binding.fragmentShoeDetailsEtCompany.text.toString()),
+            viewModel.handleEmptyEditTexts(binding.fragmentShoeDetailsEtDesc.text.toString()),
             null
         )
     }
