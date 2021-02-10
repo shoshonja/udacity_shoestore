@@ -95,3 +95,4 @@ Open the starter project in Android Studio
     DONE
     
     * Add a new layout item into the scrollview for each shoe.
+    DONE

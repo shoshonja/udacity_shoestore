@@ -16,18 +16,27 @@ class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
         binding.fragmentLoginBtExisting.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+            navigateToWelcomeFragment(view)
         }
 
         binding.fragmentLoginBtNew.setOnClickListener { view: View ->
-            view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+            navigateToWelcomeFragment(view)
         }
 
         return binding.root
+    }
+
+    private fun navigateToWelcomeFragment(view: View) {
+        view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+
     }
 }

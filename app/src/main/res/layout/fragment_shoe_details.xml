@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.shoedetails.ShoeDetailsViewModel" />
+    </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -65,10 +72,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="This is description"
-            app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_et_size"
             app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_et_desc"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_et_size" />
 
         <EditText
             android:id="@+id/fragment_shoe_details_et_desc"
@@ -85,6 +92,7 @@
             app:layout_constraintEnd_toStartOf="@id/fragment_shoe_details_bt_cancel"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_desc" />
+        <!--            android:onClick="@={() -> viewModel.onSave()}"-->
 
         <Button
             android:id="@+id/fragment_shoe_details_bt_cancel"
@@ -95,6 +103,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/fragment_shoe_details_bt_save"
             app:layout_constraintTop_toTopOf="@id/fragment_shoe_details_bt_save" />
+<!--        android:onClick="@={() -> viewModel.onCancel()}"-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

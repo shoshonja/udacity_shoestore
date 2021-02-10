@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -26,7 +25,6 @@ class ShoeDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_details, container, false)
         binding.lifecycleOwner = this
@@ -35,25 +33,21 @@ class ShoeDetailsFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(ShoeDetailsViewModel::class.java)
         mainViewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
 
-//        viewModel.eventCanceled.observe(viewLifecycleOwner, Observer { isCanceled ->
-//            if (isCanceled) {
-//                goBack()
-//            }
-//        })
-//
-//        viewModel.newShoeDetail.observe(viewLifecycleOwner, Observer { shoe ->
-//            goBackWithShoe(shoe)
-//        })
+        viewModel.eventCanceled.observe(viewLifecycleOwner, Observer { isCanceled ->
+            if (isCanceled) {
+                shoeCanceled()
+            }
+        })
 
-//        mainViewModel.shoeList.observe(
-//            viewLifecycleOwner,
-//            Observer { Toast.makeText(context, "Shoe is added", Toast.LENGTH_SHORT).show() })
+        viewModel.eventSaved.observe(viewLifecycleOwner, Observer { isSaved ->
+            if (isSaved) {
+                shoeSaved(gatherShoeData())
+            }
+        })
 
         binding.fragmentShoeDetailsBtSave.setOnClickListener { shoeSaved(gatherShoeData()) }
         binding.fragmentShoeDetailsBtCancel.setOnClickListener { shoeCanceled() }
 
-
-        //observe for cancel and new shoe detail
 
         return binding.root
     }
@@ -73,25 +67,14 @@ class ShoeDetailsFragment : Fragment() {
     private fun shoeSaved(shoe: Shoe) {
         mainViewModel.addShoe(shoe)
         goBack()
-//        viewModel.onSave(shoe)
     }
 
     private fun shoeCanceled() {
         goBack()
-//        viewModel.onCancel()
     }
 
     private fun goBack() {
         findNavController().navigateUp()
     }
-
-    private fun goBackWithShoe(shoe: Shoe) {
-        findNavController().navigate(
-            ShoeDetailsFragmentDirections.actionShoeDetailsFragmentToShoeListingFragment(
-                shoe
-            )
-        )
-    }
-
 
 }

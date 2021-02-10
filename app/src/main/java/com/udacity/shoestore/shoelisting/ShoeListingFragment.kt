@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,7 @@ import com.udacity.shoestore.R
 import com.udacity.shoestore.activitymain.MainActivityViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListingBinding
 import com.udacity.shoestore.models.Shoe
+import kotlinx.android.synthetic.main.layout_shoe.view.*
 
 
 class ShoeListingFragment : Fragment() {
@@ -29,7 +31,6 @@ class ShoeListingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_listing, container, false)
         binding.lifecycleOwner = this
@@ -38,83 +39,31 @@ class ShoeListingFragment : Fragment() {
         mainViewModel = ViewModelProvider(requireActivity())[MainActivityViewModel::class.java]
 
 
+        setObservers()
 
 
-        mainViewModel.shoeList.observe(viewLifecycleOwner, { newShoeList ->
-            run {
-//                Toast.makeText(context, "Shoe is created", Toast.LENGTH_SHORT).show()
-                Log.d("SHOE_LOG", "Observer si triggered")
-//                addLayout(newShoeList[newShoeList.size - 1])
-
-
-//                if (mainViewModel.shoeList.value != null) {
-//                    for (shoe in mainViewModel.shoeList.value!!) {
-//                        addLayout(shoe)
-//                    }
-//                }
-
-                for (shoe in newShoeList){
-                    addLayout(shoe)
-                }
-
-
-//                binding.invalidateAll()
-//                binding.fragmentShoeListingLinear.addView(tv, -1)
-//                binding.fragmentShoeListingLinear.requestLayout()
-//                binding.fragmentShoeListingLinear.invalidate()
-                Log.d("SHOE_LOG", "View is added")
-
-            }
-        })
-
-
-        //TODO: bug - addView se triggera više puta
-        //TODO: bug - addView radi replace view, a ne add
-
-
+//TODO use databinding
         binding.fragmentShoeListingFab.setOnClickListener {
             findNavController().navigate(R.id.action_shoeListingFragment_to_shoeDetailsFragment)
-            //TODO zašto ovo dolje zakomentirano radi, a ono iz Observera ne radi??
-
-
-//            mainViewModel.addShoe(Shoe("Shoe", 40.0, "sdgf", "sdfg"))
-
-
-//            val tv = TextView(context)
-//            tv.text = "newShoeList[newShoeList.size-1].name"
-//            tv.layoutParams = LinearLayout.LayoutParams(
-//                LinearLayout.LayoutParams.MATCH_PARENT,
-//                LinearLayout.LayoutParams.WRAP_CONTENT
-//            )
-//
-//            binding.fragmentShoeListingLinear.addView(tv)
         }
 
         return binding.root
     }
 
-//    override fun onResume() {
-//        super.onResume()
-//        if (mainViewModel.shoeList.value != null) {
-//            for (shoe in mainViewModel.shoeList.value!!) {
-//                addLayout(shoe)
-//            }
-//        }
-//
-//    }
-
-    private fun addLayout(shoe: Shoe) {
-        val name = TextView(context)
-        name.text = shoe.name
-        name.layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        )
-        binding.fragmentShoeListingLinear.addView(name)
+    private fun setObservers() {
+        mainViewModel.shoeList.observe(viewLifecycleOwner, { newShoeList ->
+            for (shoe in newShoeList) {
+                addLayout(shoe)
+            }
+        })
     }
 
+    private fun addLayout(shoe: Shoe) {
+        val shoeLayout = layoutInflater.inflate(R.layout.layout_shoe, null)
+        shoeLayout.layout_shoe_title.text = shoe.name
+        shoeLayout.layout_shoe_description.text = shoe.description
 
-    //TODO back button need to work
-    //TODO nav bar needs to work
-    //TODO use activity level viewModel instead of safeArgs!
+        binding.fragmentShoeListingLinear.addView(shoeLayout)
+    }
+//TODO nav bar needs to work
 }
