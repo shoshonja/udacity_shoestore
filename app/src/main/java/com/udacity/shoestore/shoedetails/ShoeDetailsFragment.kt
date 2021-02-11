@@ -27,12 +27,12 @@ class ShoeDetailsFragment : Fragment() {
     ): View? {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_details, container, false)
-        binding.lifecycleOwner = this
 
         viewModel = ViewModelProvider(this).get(ShoeDetailsViewModel::class.java)
         mainViewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
 
         binding.viewModel = viewModel
+        binding.lifecycleOwner = this
 
         setObservers()
 
@@ -46,21 +46,9 @@ class ShoeDetailsFragment : Fragment() {
             }
         })
 
-        viewModel.eventSaved.observe(viewLifecycleOwner, Observer { isSaved ->
-            if (isSaved) {
-                shoeSaved(gatherShoeData())
-            }
+        viewModel.newShoe.observe(viewLifecycleOwner, Observer { newShoe ->
+            shoeSaved(newShoe)
         })
-    }
-
-    private fun gatherShoeData(): Shoe {
-        return Shoe(
-            viewModel.handleEmptyEditTexts(binding.fragmentShoeDetailsEtName.text.toString()),
-            viewModel.handleEmptyEditTextsAsDoubles(binding.fragmentShoeDetailsEtSize.text.toString()),
-            viewModel.handleEmptyEditTexts(binding.fragmentShoeDetailsEtCompany.text.toString()),
-            viewModel.handleEmptyEditTexts(binding.fragmentShoeDetailsEtDesc.text.toString()),
-            null
-        )
     }
 
     private fun shoeSaved(shoe: Shoe) {

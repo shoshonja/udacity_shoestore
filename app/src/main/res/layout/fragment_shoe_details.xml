@@ -29,6 +29,7 @@
             android:id="@+id/fragment_shoe_details_et_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@={viewModel.name}"
             app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_company"
             app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_name" />
 
@@ -46,6 +47,7 @@
             android:id="@+id/fragment_shoe_details_et_company"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@={viewModel.manufacturer}"
             app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_size"
             app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_company" />
 
@@ -64,6 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:text="@={viewModel.size}"
             app:layout_constraintBottom_toTopOf="@id/fragment_shoe_details_tv_size"
             app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_size" />
 
@@ -81,6 +84,7 @@
             android:id="@+id/fragment_shoe_details_et_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@={viewModel.description}"
             app:layout_constraintTop_toBottomOf="@id/fragment_shoe_details_tv_desc" />
 
         <Button
