@@ -32,12 +32,4 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-
-    <!-- Add scroll view - check tutorial-->
-    <!--        <ListView-->
-    <!--            android:id="@+id/fragment_shoe_listing_list"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent" />-->
-
-
 </layout>
