@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Here I've chosen constraint layout because it allows me more control over position of each view.
+   Linear layout could have worked just as well as constraint in this case, but if i decide to alter spacing
+   between views, constraint gives me greater flexibility-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
