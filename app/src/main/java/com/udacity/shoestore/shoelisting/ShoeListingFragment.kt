@@ -59,5 +59,4 @@ class ShoeListingFragment : Fragment() {
 
         binding.fragmentShoeListingLinear.addView(shoeLayout)
     }
-//TODO nav bar needs to work
 }
