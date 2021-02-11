@@ -29,12 +29,12 @@ class ShoeDetailsFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_details, container, false)
         binding.lifecycleOwner = this
 
-
         viewModel = ViewModelProvider(this).get(ShoeDetailsViewModel::class.java)
         mainViewModel = ViewModelProvider(requireActivity()).get(MainActivityViewModel::class.java)
 
+        binding.viewModel = viewModel
+
         setObservers()
-        setLiseners()
 
         return binding.root
     }
@@ -52,12 +52,6 @@ class ShoeDetailsFragment : Fragment() {
             }
         })
     }
-
-    private fun setLiseners() {
-        binding.fragmentShoeDetailsBtSave.setOnClickListener { viewModel.onSave() }
-        binding.fragmentShoeDetailsBtCancel.setOnClickListener { viewModel.onCancel() }
-    }
-
 
     private fun gatherShoeData(): Shoe {
         return Shoe(

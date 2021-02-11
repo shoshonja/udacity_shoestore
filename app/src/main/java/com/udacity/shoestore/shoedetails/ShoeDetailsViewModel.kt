@@ -1,6 +1,5 @@
 package com.udacity.shoestore.shoedetails
 
-import android.widget.EditText
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -36,6 +35,4 @@ class ShoeDetailsViewModel : ViewModel() {
             editTextString.toDouble()
         }
     }
-
-
 }
