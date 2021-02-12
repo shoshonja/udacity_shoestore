@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_title_large">32sp</dimen>
+
+    <dimen name="fragment_welcome_title_size">@dimen/common_title_large</dimen>
+    <dimen name="fragment_instructions_title_size">@dimen/common_title_large</dimen>
+
+    <dimen name="fragment_shoe_listing_fab_margin">16dp</dimen>
+</resources>

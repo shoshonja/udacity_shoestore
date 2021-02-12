@@ -8,4 +8,28 @@
     <string name="instructions_title">Instructions</string>
     <string name="shoe_listing_title">Shoe Listing</string>
     <string name="shoe_detail_title">Shoe Details</string>
+
+    <string name="fragment_instructions_title">This is instructions screen</string>
+    <string name="fragment_instructions_expl">This is some lengthy explanation about shoes and how they need to fit your feet</string>
+    <string name="fragment_instructions_question">Would you like to see more?</string>
+    <string name="fragment_instructions_button">Proceed to the shoe listing</string>
+
+    <string name="fragment_login_email_tv">Email goes here</string>
+    <string name="fragment_login_email_hint">Enter your email</string>
+    <string name="fragment_login_password_tv">Password goes here</string>
+    <string name="fragment_login_password_hint">Enter your password</string>
+    <string name="fragment_login_bt_new">Login with new account</string>
+    <string name="fragment_login_bt_existing">Login with existing account</string>
+
+    <string name="fragment_shoe_details_name">This is shoe name</string>
+    <string name="fragment_shoe_details_company">This is shoemaker</string>
+    <string name="fragment_shoe_details_size">This is shoe size</string>
+    <string name="fragment_shoe_details_desc">This is description</string>
+    <string name="fragment_shoe_detail_bt_save">Save shoe</string>
+    <string name="fragment_shoe_details_bt_cancel">Cancel</string>
+
+    <string name="fragment_welcome_title">This is Welcome screen</string>
+    <string name="fragment_welcome_tv_expl">This is some lengthy explanation about shoes and how they need to fit your feet</string>
+    <string name="fragment_welcome_tv_quest">Would you like to know more?</string>
+    <string name="fragment_welcome_bt_proceed">Proceed to the instructions</string>
 </resources>
