@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- I've chosen constraint layout, because it gives me more control over positioning of the views,and avoids nesting layouts-->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- I've chosen constraint layout, because it gives me more control over positioning of the views,and avoids nesting layouts-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/layout_shoe_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/ic_launcher"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/layout_shoe_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/layout_shoe_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/layout_shoe_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/layout_shoe_image"
-        app:layout_constraintTop_toTopOf="@id/layout_shoe_image"
-        app:layout_constraintVertical_bias="0.25" />
+        <TextView
+            android:id="@+id/layout_shoe_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/layout_shoe_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/layout_shoe_image"
+            app:layout_constraintTop_toTopOf="@id/layout_shoe_image"
+            app:layout_constraintVertical_bias="0.25" />
 
-    <TextView
-        android:id="@+id/layout_shoe_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/layout_shoe_image"
-        app:layout_constraintEnd_toEndOf="@id/layout_shoe_title"
-        app:layout_constraintStart_toStartOf="@id/layout_shoe_title"
-        app:layout_constraintTop_toBottomOf="@id/layout_shoe_title" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/layout_shoe_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/layout_shoe_image"
+            app:layout_constraintEnd_toEndOf="@id/layout_shoe_title"
+            app:layout_constraintStart_toStartOf="@id/layout_shoe_title"
+            app:layout_constraintTop_toBottomOf="@id/layout_shoe_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+</layout>
