@@ -22,7 +22,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         binding.fragmentLoginBtExisting.setOnClickListener { view: View ->
             navigateToWelcomeFragment(view)

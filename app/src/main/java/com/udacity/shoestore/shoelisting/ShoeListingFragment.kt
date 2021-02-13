@@ -26,8 +26,7 @@ class ShoeListingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_listing, container, false)
+        binding = FragmentShoeListingBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
 
         viewModel = ViewModelProvider(this).get(ShoeListingViewModel::class.java)
