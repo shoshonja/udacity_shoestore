@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.activitymain.MainActivityViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListingBinding
+import com.udacity.shoestore.databinding.LayoutShoeBinding
 import com.udacity.shoestore.models.Shoe
 import kotlinx.android.synthetic.main.layout_shoe.view.*
 
@@ -53,10 +54,10 @@ class ShoeListingFragment : Fragment() {
     }
 
     private fun addLayout(shoe: Shoe) {
-        val shoeLayout = layoutInflater.inflate(R.layout.layout_shoe, null)
-        shoeLayout.layout_shoe_title.text = shoe.name
-        shoeLayout.layout_shoe_description.text = shoe.description
+        val shoeLayoutBinding = LayoutShoeBinding.inflate(layoutInflater)
+        shoeLayoutBinding.layoutShoeTitle.text = shoe.name
+        shoeLayoutBinding.layoutShoeDescription.text = shoe.description
 
-        binding.fragmentShoeListingLinear.addView(shoeLayout)
+        binding.fragmentShoeListingLinear.addView(shoeLayoutBinding.root)
     }
 }
